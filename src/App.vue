@@ -1,21 +1,18 @@
 <script setup>
-const name = 'Vue dynamic'
-const styleColor = "color: blue"
-const arrayColors = ['blue', 'red', 'yellow']
-const activo = false
+import { ref } from 'vue'
+
+let counter = ref(0)
+const increment = () => {
+  console.log('Aumentar contador')
+  counter.value++
+}
 </script>
 
 <template>
-  <h1>Hello {{ name.toUpperCase() }}!</h1>
-  <h2>{{ arrayColors }}</h2>
-  <h2 :style="`color: ${arrayColors[0]}`">Texto colorido</h2>
-  <h2>
-    {{ activo ? 'Estoy activo' : 'Estoy inactivo' }}
-  </h2>
+  <h2>{{ counter }}</h2>
+  <button @click="increment">Aumentar</button>
 </template>
 
 <style>
-h1 {
-  color: red;
-}
+
 </style>
